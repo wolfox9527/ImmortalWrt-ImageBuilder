@@ -20,6 +20,7 @@ on:
         type: choice
         default: '1G'
         options:
+          - '512M'
           - '1G'
           - '2G'
           - '3G'
@@ -96,6 +97,9 @@ jobs:
         run: |
           profile="${{ github.event.inputs.profile }}"
           case "$profile" in
+            512M)
+              ROOTFS_SIZE=512
+              ;;
             1G)
               ROOTFS_SIZE=1024
               ;;
